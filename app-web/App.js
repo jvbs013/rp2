@@ -1,28 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import CadastrarDoacao from './src/pages/CadastrarDoacao/index'
+import HomeScreen from './src/pages/Home/index'
 
-Icon.loadFont();
+const Stack = createNativeStackNavigator();
 
-export default function App() {
+function App() {
   return (
-    <View style={styles.container}>
-      <Text style={{ fontSize: 20 }} >Seja bem vindo!</Text>
-      <StatusBar style="auto" />
-      <View style={{ flexDirection: 'row', marginTop: 550 }}>
-        <Icon style={{ marginRight: 80 }} name="add" size={80} color="black" />
-        <Icon name="home" size={80} color="black" />
-        <Icon style={{ marginLeft: 80 }} name="list-alt" size={80} color="black" />
-      </View>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Cadastrar Doação" component={CadastrarDoacao} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#D7E1D8',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;

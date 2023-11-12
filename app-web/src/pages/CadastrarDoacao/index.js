@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { View, Text, Button, TextInput, Modal, Alert, Pressable, StyleSheet, SafeAreaView } from 'react-native';
 import { useState } from 'react';
 import { supabase } from '../../repository/supabase';
@@ -77,16 +76,6 @@ function CadastrarDoacao({ navigation }) {
         setDescricao('');
         setQtdAlimento('');
     };
-
-    const doacaoPendente = async () => {
-        let { data, error } = await supabase
-            .from("TB_DOACOES")
-            .select('id')
-            .eq('user_id', 1)
-            .eq('status', 'Pendente');
-
-        return data.length > 0;
-    }
 
     return (
         <View style={styles.container}>

@@ -11,7 +11,7 @@ function HomeScreen({ navigation }) {
       <Text style={{ fontSize: 20 }} >Seja bem vindo!</Text>
       <View style={{ flexDirection: 'row', marginTop: 500 }}>
         <Icon onPress={() => navigation.navigate('Cadastrar Doação')} style={{ marginRight: 70 }} name="add" size={70} color="black" />
-        <Icon style={{ marginLeft: 70 }} name="list-alt" size={70} color="black" />
+        <Icon onPress={() => navigation.navigate('Minhas doações')} style={{ marginLeft: 70 }} name="list-alt" size={70} color="black" />
       </View>
     </View>
   );

@@ -1,9 +1,6 @@
 import { View, Text, StyleSheet, SafeAreaView, FlatList, ActivityIndicator } from 'react-native';
 import { useState, useEffect } from 'react';
 import { supabase } from '../../repository/supabase';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-
-Icon.loadFont();
 
 const options = {
     year: 'numeric',

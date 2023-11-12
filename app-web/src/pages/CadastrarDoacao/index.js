@@ -6,6 +6,12 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 Icon.loadFont();
 
+const options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
+
 function CadastrarDoacao({ navigation }) {
     const [descricao, setDescricao] = useState('');
     const [qtdAlimento, setQtdAlimento] = useState('');
@@ -35,7 +41,8 @@ function CadastrarDoacao({ navigation }) {
             onChange,
             mode: currentMode,
             is24Hour: true,
-            minimumDate: minimunHour
+            minimumDate: minimunHour,
+            timeZoneName: 'America/Sao_Paulo'
         });
     };
 
@@ -132,7 +139,7 @@ function CadastrarDoacao({ navigation }) {
                 <Button onPress={showDatepicker} title="Dia " />
                 <Button onPress={showTimepicker} title="Horário" />
             </SafeAreaView>
-            <Text style={{ marginBottom: 50 }}>Doação ficará disponível até: {date.toLocaleString("pt-BR")}</Text>
+            <Text style={{ marginBottom: 50 }}>Doação disponível até: {date.toLocaleDateString('pt-BR', options)} às {date.getHours()}:{date.getMinutes()}</Text>
 
             <Button color={"#006400"} title="Cadastrar" onPress={doacaoSubmit} />
         </View>

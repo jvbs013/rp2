@@ -15,11 +15,6 @@ function HomeScreen({ navigation }) {
     setUserType(value);
   }
 
-  const handleNavigation = () => {
-    setModalVisible(!modalVisible);
-    setUserType(value);
-  }
-
   return (
     <View style={styles.container}>
       <Text style={{ fontSize: 20 }} >Seja bem vindo {userType}!</Text>

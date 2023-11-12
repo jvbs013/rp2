@@ -46,8 +46,18 @@ function HomeScreen({ navigation }) {
         </View>
       </Modal>
       <View style={{ flexDirection: 'row', marginTop: 500 }}>
-        <Icon onPress={() => navigation.navigate(userType === 'Doador' ? 'Cadastrar Doação' : 'Doações disponíveis')} style={{ marginRight: 70 }} name="add" size={70} color="black" />
-        <Icon onPress={() => navigation.navigate(userType === 'Doador' ? 'Minhas doações' : 'Minhas reservas')} style={{ marginLeft: 70 }} name="list-alt" size={70} color="black" />
+        <Icon 
+        onPress={() => navigation.navigate(userType === 'Doador' ? 'Cadastrar Doação' : 'Doações disponíveis', {user_id: userType === 'Doador' ? 1 : 2})} 
+        style={{ marginRight: 70 }} 
+        name="add" 
+        size={70} 
+        color="black" />
+        <Icon 
+        onPress={() => navigation.navigate(userType === 'Doador' ? 'Minhas doações' : 'Minhas reservas', {user_id: userType === 'Doador' ? 1 : 2})} 
+        style={{ marginLeft: 70 }} 
+        name="list-alt" 
+        size={70} 
+        color="black" />
       </View>
     </View>
   );

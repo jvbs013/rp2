@@ -12,7 +12,8 @@ const options = {
     day: 'numeric',
   };
 
-function CadastrarDoacao({ navigation }) {
+function CadastrarDoacao({ route, navigation }) {
+    const { user_id } = route.params;
     const [descricao, setDescricao] = useState('');
     const [qtdAlimento, setQtdAlimento] = useState('');
 
@@ -61,14 +62,14 @@ function CadastrarDoacao({ navigation }) {
         let { data, error } = await supabase
             .from("TB_DOACOES")
             .select('id')
-            .eq('user_id', 1)
+            .eq('user_id', user_id)
             .eq('status', 'Pendente');
 
         if (data.length === 0) {
 
             const { data, error } = await supabase.from("TB_DOACOES").insert([
                 {
-                    user_id: 1,
+                    user_id: user_id,
                     descricao: descricao,
                     quantidade_kg: parseFloat(qtdAlimento),
                     disponivel_ate: date.toLocaleString("pt-BR"),

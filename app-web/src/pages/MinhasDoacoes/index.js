@@ -8,7 +8,8 @@ const options = {
     day: 'numeric',
   };
 
-function MinhasDoacoes({ navigation }) {
+function MinhasDoacoes({ route, navigation }) {
+    const { user_id } = route.params;
 
     const [info, setInfo] = useState([]);
 
@@ -19,7 +20,7 @@ function MinhasDoacoes({ navigation }) {
             const { data, error } = await supabase
             .from("TB_DOACOES")
             .select('id,criada_em,quantidade_kg,status')
-            .eq('user_id', 1);
+            .eq('user_id', user_id);
 
         setInfo(data);
         setIsDataRendered(true);

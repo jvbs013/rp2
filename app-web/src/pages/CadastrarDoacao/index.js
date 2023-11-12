@@ -1,4 +1,4 @@
-import { View, Text, Button, TextInput, Modal, Alert, Pressable, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, Button, TextInput, Modal, Alert, Pressable, StyleSheet, SafeAreaView, ActivityIndicator } from 'react-native';
 import { useState } from 'react';
 import { supabase } from '../../repository/supabase';
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
@@ -13,6 +13,8 @@ function CadastrarDoacao({ navigation }) {
     const [modalVisible, setModalVisible] = useState(false);
     const [modalText, setModalText] = useState('');
     const [isSuccess, setIsSuccess] = useState(true);
+
+    const [isRendering, setIsRendering] = useState(false);
 
     let brazilCurrentDate = new Date();
     brazilCurrentDate.setHours(brazilCurrentDate.getHours() - 3);
@@ -46,6 +48,7 @@ function CadastrarDoacao({ navigation }) {
     };
 
     const doacaoSubmit = async (e) => {
+        setIsRendering(true);
         e.preventDefault();
 
         let { data, error } = await supabase
@@ -75,10 +78,12 @@ function CadastrarDoacao({ navigation }) {
 
         setDescricao('');
         setQtdAlimento('');
+        setIsRendering(false);
     };
 
     return (
         <View style={styles.container}>
+            <ActivityIndicator size="large" animating={isRendering} />
             <Modal
                 animationType="slide"
                 transparent={true}

@@ -201,10 +201,6 @@ const styles = StyleSheet.create({
         padding: 10,
         elevation: 2,
     },
-    buttonOpen: {
-    },
-    buttonClose: {
-    },
     textStyle: {
         color: 'white',
         fontWeight: 'bold',

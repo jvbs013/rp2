@@ -30,15 +30,15 @@ function HomeScreen({ navigation }) {
           <View style={styles.modalView}>
             <Icon name="info" size={25} color="blue" />
             <Text>Selecione um tipo de usuario</Text>
-            <View style={{ flexDirection: 'row'}}>
+            <View style={{ flexDirection: 'row' }}>
               <Button
                 title='Doador'
-                style={styles.button}
+                style={{ marginRight: 20 }}
                 onPress={() => handleButton('Doador')}
               />
               <Button
                 title={'Coletor'}
-                style={styles.button}
+                style={{ marginRight: 70 }}
                 onPress={() => handleButton('Coletor')}
               />
             </View>
@@ -53,7 +53,7 @@ function HomeScreen({ navigation }) {
         size={70} 
         color="black" />
         <Icon 
-        onPress={() => navigation.navigate(userType === 'Doador' ? 'Minhas doações' : 'Minhas reservas', {user_id: userType === 'Doador' ? 1 : 2})} 
+        onPress={() => navigation.navigate(userType === 'Doador' ? 'Minhas Doações' : 'Minhas reservas', {user_id: userType === 'Doador' ? 1 : 2})} 
         style={{ marginLeft: 70 }} 
         name="list-alt" 
         size={70} 
@@ -97,5 +97,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     elevation: 2,
+    marginRight: 70,
   },
 });

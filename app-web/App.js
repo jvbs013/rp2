@@ -13,7 +13,7 @@ function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Cadastrar Doação" component={CadastrarDoacao} />
-        <Stack.Screen name="Minhas doações" component={MinhasDoacoes} />
+        <Stack.Screen name="Minhas Doações" component={MinhasDoacoes} />
       </Stack.Navigator>
     </NavigationContainer>
   );

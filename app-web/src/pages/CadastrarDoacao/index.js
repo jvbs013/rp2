@@ -65,7 +65,7 @@ function CadastrarDoacao({ route, navigation }) {
             .eq('user_id', user_id)
             .eq('status', 'Pendente');
 
-        if (data.length === 0) {
+        if (data.length < 5) {
 
             const { data, error } = await supabase.from("TB_DOACOES").insert([
                 {
